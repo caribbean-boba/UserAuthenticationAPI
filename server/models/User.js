@@ -1,8 +1,8 @@
 const db = require('../db/db');
 
 const User = db.Model.extend({
-  tableName: 'login_user',
-  hasSecurePassword: 'password_bash'
+  tableName: 'user_information',
+  hasSecurePassword: 'password_hash'
 });
 
 module.exports = User;

@@ -1,6 +1,6 @@
 module.exports = {
   development: {
     client: 'pg',
-    connection: 'postgresql://localhost:5432/jwt_test'
+    connection: 'postgresql://localhost:5432/walkthru'
   }
 };
