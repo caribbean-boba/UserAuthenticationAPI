@@ -16,7 +16,7 @@ passport.use(new JwtStrategy(opts, function(jwt_payload, next) {
 router.post('/signup', (req, res) => {
     // console.log(req);
     if (!req.body.email || !req.body.password || !req.body.admin) {
-        return status(401).send('missing fields');
+        return res.status(401).send('missing fields');
     }
     const user = new User({
         email: req.body.email,
@@ -35,7 +35,6 @@ router.post ('/getToken', (req, res) => {
     if (!req.body.email || !req.body.password) {
       return res.status(401).send('missing fields');
     }
-<<<<<<< HEAD
     User.forge({ email: req.body.email }).fetch().then(result => {
       if (!result) {
         return res.status(400).send('user not found');
@@ -58,12 +57,6 @@ router.post ('/getWebToken', (req, res) => {
       return res.status(401).send('missing fields');
     }
 
-=======
-
-    if (req.body.admin !== 'web') {
-        return res.status(401).send('I can not authorize you');
-    }
->>>>>>> parent of 9ed3cb5... need more testing and description
     User.forge({ email: req.body.email }).fetch().then(result => {
       if (result.attributes.admin !== 'web') {
         return res.status(401).send('I can not authorize you since your admin is web');
